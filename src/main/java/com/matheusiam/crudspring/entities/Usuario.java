@@ -2,7 +2,10 @@ package com.matheusiam.crudspring.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +13,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "tb_usuarios")
@@ -27,7 +32,10 @@ public class Usuario implements Serializable{
 	@Column(name = "cpf")
 	private String cpf;
 	
-	@Column(name = "data_nascimento")
+	@Temporal(TemporalType.DATE) 		// Diz que esta variável só recebe o tipo Data
+	@JsonFormat(pattern = "yyyy-MM-dd") // Define o padrão de data que vai ser recebido
+	@Column(name = "data_nascimento")	/* Explicita que na tabela há ou deve existir uma
+										coluna com este nome */ 
 	private Date dataNascimento;
 	
 	@Column(name = "sexo", length = 1)
@@ -67,6 +75,10 @@ public class Usuario implements Serializable{
 
 	public Integer getId() {
 		return id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	@Override

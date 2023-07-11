@@ -41,6 +41,7 @@ public class UsuarioService {
 	}
 	
 	private void atualizarDados(Usuario novo, Usuario antigo) {
+		
 		antigo.setCpf(novo.getCpf());
 		antigo.setDataNascimento(novo.getDataNascimento());
 		antigo.setNome(novo.getNome());
