@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.matheusiam</groupId>
 	<artifactId>crudspring</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>crudspring</name>
 	<description>Sistema para comprovação de conhecimento</description>
 	<properties>
@@ -47,4 +46,5 @@
 		</plugins>
 	</build>
 
+	<version>0.5.0</version>
 </project>

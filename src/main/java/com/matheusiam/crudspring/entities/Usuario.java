@@ -65,8 +65,8 @@ public class Usuario implements Serializable{
 		this.sexo = sexo;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public Integer getId() {
+		return id;
 	}
 
 	@Override
