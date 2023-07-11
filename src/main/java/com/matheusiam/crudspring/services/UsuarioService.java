@@ -34,10 +34,10 @@ public class UsuarioService {
 	
 	public Usuario atualizar(Integer id, Usuario obj) {
 		
-		Usuario cobaia = repositorio.getReferenceById(id);
-		atualizarDados(cobaia, obj);
+		Usuario antigo = repositorio.getReferenceById(id);
+		atualizarDados(obj, antigo);
 		
-		return repositorio.save(cobaia);
+		return repositorio.save(antigo);
 	}
 	
 	private void atualizarDados(Usuario novo, Usuario antigo) {
