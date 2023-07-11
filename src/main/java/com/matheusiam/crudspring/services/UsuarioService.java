@@ -46,5 +46,4 @@ public class UsuarioService {
 		antigo.setNome(novo.getNome());
 		antigo.setSexo(novo.getSexo());
 	}
-	
 }
