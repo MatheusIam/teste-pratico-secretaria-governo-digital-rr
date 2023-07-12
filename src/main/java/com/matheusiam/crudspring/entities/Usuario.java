@@ -2,7 +2,6 @@ package com.matheusiam.crudspring.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -12,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -22,7 +22,8 @@ public class Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_usuarios_generator")
+	@SequenceGenerator(name = "seq_usuarios_generator", sequenceName = "seq_usuarios", allocationSize = 1)
 	@Column(name = "id")
 	private Integer id;
 	

@@ -1,0 +1,21 @@
+.container-md{
+    padding: 5px;
+}
+
+#btn-novo{
+    background-color: greenyellow;
+}
+
+.btn-excluir{
+    background-color: red;
+}
+
+.btn-alterar{
+    background-color: yellow;
+}
+
+
+
+.nome{
+    width: 50%;
+}
