@@ -2,7 +2,6 @@ package com.matheusiam.crudspring.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -12,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -22,7 +22,8 @@ public class Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_usuarios_generator")
+	@SequenceGenerator(name = "seq_usuarios_generator", sequenceName = "seq_usuarios", allocationSize = 1)
 	@Column(name = "id")
 	private Integer id;
 	
@@ -32,14 +33,17 @@ public class Usuario implements Serializable{
 	@Column(name = "cpf")
 	private String cpf;
 	
-	@Temporal(TemporalType.DATE) 		// Diz que esta variável só recebe o tipo Data
-	@JsonFormat(pattern = "yyyy-MM-dd") // Define o padrão de data que vai ser recebido
+			// Diz que esta variável só recebe o tipo Data
+										// Define o padrão de data que vai ser recebido
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone="GMT-4")
 	@Column(name = "data_nascimento")	/* Explicita que na tabela há ou deve existir uma
 										coluna com este nome */ 
 	private Date dataNascimento;
 	
 	@Column(name = "sexo", length = 1)
 	private String sexo;
+	
+	
 
 	public String getNome() {
 		return nome;

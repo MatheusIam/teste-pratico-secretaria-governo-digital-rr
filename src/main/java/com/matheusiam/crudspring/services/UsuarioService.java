@@ -37,11 +37,10 @@ public class UsuarioService {
 		Usuario antigo = repositorio.getReferenceById(id);
 		atualizarDados(obj, antigo);
 		
-		return repositorio.save(antigo);
+		return repositorio.save(antigo); // isto aqui deve retornar o ID do cara que ele mudou
 	}
 	
 	private void atualizarDados(Usuario novo, Usuario antigo) {
-		
 		antigo.setCpf(novo.getCpf());
 		antigo.setDataNascimento(novo.getDataNascimento());
 		antigo.setNome(novo.getNome());
